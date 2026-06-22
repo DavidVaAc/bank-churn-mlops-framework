@@ -4,8 +4,10 @@ Este repositorio contiene un ecosistema de producción automatizado y modular pa
 
 A diferencia de los enfoques tradicionales que optimizan métricas puramente estadísticas (como F1-Score o Accuracy), este sistema implementa un **Motor de Decisiones Sensible al Costo (Cost-Sensitive Learning)** calibrado mediante optimización empírica en un conjunto de validación aislado, respaldado por un **Mapeo Canónico de Centroides** y validado financieramente a través de simulaciones estocásticas de **Monte Carlo (Bootstrap Dual)**.
 
-> **[📊 Simulación Estratégica Interactiva (Streamlit App)](https://bank-churn-mlops-framework.streamlit.app/)**
 > **[🖥️ Ver Presentación Ejecutiva (Reporte PDF)](https://DavidVaAc.github.io/bank-churn-mlops-framework/slides/framework.pdf)**
+
+> **[📊 Simulación Estratégica Interactiva (Streamlit App)](https://bank-churn-mlops-framework.streamlit.app/)**
+
 
 ## 🏗️ La Arquitectura de los 3 Pilares (Separación de Responsabilidades)
 
@@ -25,7 +27,8 @@ Para erradicar cualquier posibilidad de sobreajuste o fuga de información (*Dat
 * **Prueba (20%):** Un universo completamente virgen que jamás fue visto por el clasificador ni por el optimizador de umbrales. Se utiliza estrictamente para simular el despliegue real en producción y auditar el riesgo estocástico.
 
 
-2. **Validación de Contrato de Datos (Input Schema):** - Al ingresar datos nuevos al sistema de producción (ya sea vía `predict.py` o `app.py`), la clase `SistemaRetencionBancaria` ejecuta un filtrado defensivo. Si el archivo carece de alguna de las 21 columnas transaccionales requeridas o del identificador de negocio `CLIENTNUM`, el sistema detiene la ejecución de forma segura mediante un error controlado (`ValueError`), listando explícitamente las columnas faltantes antes de contaminar la memoria del modelo.
+2. **Validación de Contrato de Datos (Input Schema):** 
+- Al ingresar datos nuevos al sistema de producción (ya sea vía `predict.py` o `app.py`), la clase `SistemaRetencionBancaria` ejecuta un filtrado defensivo. Si el archivo carece de alguna de las 21 columnas transaccionales requeridas o del identificador de negocio `CLIENTNUM`, el sistema detiene la ejecución de forma segura mediante un error controlado (`ValueError`), listando explícitamente las columnas faltantes antes de contaminar la memoria del modelo.
 
 ## 🦾 2. Robustez en Producción: Mapeo Canónico de Clústeres
 
