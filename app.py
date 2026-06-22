@@ -113,7 +113,7 @@ with st.sidebar.form("parametros_financieros"):
     c3_ltv = st.number_input("LTV Rescate (C3) $", min_value=20, max_value=300, value=int(ue_saved[3]['ltv_rescate']), step=10, key="c3_l")
 
     # Botón que confirma TODA la selección de una sola vez (al fondo del formulario)
-    st.form_submit_button("🔄 Actualizar Parámetros", use_container_width=True)
+    st.form_submit_button("🔄 Actualizar Parámetros", width="stretch")
 
 # Armar el diccionario de simulación dinámica con los valores confirmados del formulario
 dynamic_ue = {
@@ -178,10 +178,10 @@ with col_upload:
 
 with col_demo:
     st.markdown("<br>", unsafe_allow_html=True) # Espaciador para alinear el botón
-    usar_demo = st.button("🚀 Usar Dataset de Muestra (Kaggle)", use_container_width=True)
+    usar_demo = st.button("🚀 Usar Dataset de Muestra (Kaggle)", width="stretch")
     st.link_button("🌐 Ver fuente en Kaggle", 
                    "https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers", 
-                   use_container_width=True)
+                   width="stretch")
 
 # 2. Persistimos el DataFrame en session_state para que NO se borre al usar otros widgets.
 #    El botón demo solo devuelve True el rerun en que se pulsa; sin session_state la data
@@ -294,7 +294,7 @@ if df_input is not None and pipeline is not None:
                     color='Estrategia', color_continuous_scale='Viridis'
                 )
                 fig_bar.update_layout(plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color="white")
-                st.plotly_chart(fig_bar, use_container_width=True)
+                st.plotly_chart(fig_bar, width="stretch")
                 
             with g_col2:
                 # Gráfica de caja/distribución de probabilidades por clúster canónico
@@ -332,7 +332,7 @@ if df_input is not None and pipeline is not None:
                     font_color="white", 
                     showlegend=False
                 )
-                st.plotly_chart(fig_box, use_container_width=True)
+                st.plotly_chart(fig_box, width="stretch")
     
             # --- SIMULACIÓN MONTE CARLO EN VIVO (10,000 ESCENARIOS) ---
             st.markdown("---")
@@ -357,11 +357,17 @@ if df_input is not None and pipeline is not None:
                         p_churn = df_output.loc[mask, 'Probabilidad_Churn']
                         df_output.loc[mask, 'Beneficio_Base_Sim'] = (p_churn * save_rate * econ['ltv_rescate']) - econ['costo_alerta']
                         
-                # Extraemos el vector resultante (sea real o esperado) y corremos el Bootstrap masivo
+                # Extraemos el vector resultante (sea real o esperado) y corremos el Bootstrap masivo por LOTES
                 beneficios_arr = df_output['Beneficio_Base_Sim'].values
                 n_sim = 10000
-                indices_boot = np.random.choice(len(beneficios_arr), size=(n_sim, len(beneficios_arr)), replace=True)
-                roi_simulados = np.sum(beneficios_arr[indices_boot], axis=1)
+                n_obs = len(beneficios_arr)
+                batch_size = 1000  # Lotes de mil para proteger la RAM de Streamlit Cloud
+
+                roi_simulados = np.zeros(n_sim)
+                for i in range(0, n_sim, batch_size):
+                    # Procesamos 1,000 escenarios a la vez (Pico de RAM marginal)
+                    indices_boot = np.random.choice(n_obs, size=(batch_size, n_obs), replace=True)
+                    roi_simulados[i:i+batch_size] = np.sum(beneficios_arr[indices_boot], axis=1)
                 
                 # Ocultamos el resto del formateo del histograma (conteos, cortes_bins, px.bar, etc. se quedan IGUAL)
                 conteos, cortes_bins = np.histogram(roi_simulados, bins=40)
@@ -382,7 +388,7 @@ if df_input is not None and pipeline is not None:
                                    annotation_text=f"P 2.5%: ${np.percentile(roi_simulados, 2.5):,.0f}", annotation_position="top left")
                 
                 fig_hist.update_layout(plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color="white", showlegend=False)
-                st.plotly_chart(fig_hist, use_container_width=True)
+                st.plotly_chart(fig_hist, width="stretch")
                 
             # --- TABLA DE DATOS Y DESCARGA ---
             st.markdown("---")
@@ -390,7 +396,7 @@ if df_input is not None and pipeline is not None:
             
             # Mostramos las columnas solicitadas ordenadas
             cols_mostrar = ['CLIENTNUM', 'Cluster_Cliente', 'Probabilidad_Churn', 'Prediccion_Final', 'Estrategia_Asignada']
-            st.dataframe(df_output[cols_mostrar].head(100), use_container_width=True)
+            st.dataframe(df_output[cols_mostrar].head(100), width="stretch")
             
             # Botón de descarga para el CSV operativo listo para Marketing
             csv_data = df_output[cols_mostrar].to_csv(index=False).encode('utf-8')
