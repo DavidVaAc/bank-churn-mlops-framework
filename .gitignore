@@ -3,5 +3,5 @@ __pycache__/
 *.pyc
 
 # Carpetas de datos pesados y control local
-data/
 .ipynb_checkpoints/
+notebooks/test.ipynb
