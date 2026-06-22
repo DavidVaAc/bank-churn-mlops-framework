@@ -145,7 +145,7 @@ Para acercar el backend de Machine Learning a los tomadores de decisiones del ba
 
 ### 📋 Contrato de Datos de Entrada (Input Schema)
 
-Para que cualquier flujo de inferencia opere, el archivo CSV provisto **debe contener obligatoriamente las siguientes 21 columnas** (el orden no importa, pero los nombres deben respetar las mayúsculas y guiones bajos exactos):
+Para que cualquier flujo de inferencia opere, el archivo CSV provisto **debe contener obligatoriamente las siguientes 20 columnas** (el orden no importa, pero los nombres deben respetar las mayúsculas y guiones bajos exactos):
 
 * **Identificadores:** `CLIENTNUM`
 
