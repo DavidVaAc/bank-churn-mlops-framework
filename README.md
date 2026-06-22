@@ -70,20 +70,20 @@ El clasificador **LightGBM** alcanzó un rendimiento de **ROC-AUC de 0.9913** en
 A continuación, se detalla el rendimiento del clasificador sobre cada segmento conductual canónico antes de la aplicación del motor cost-sensitive:
 
 <p align="center">
-  <img src="outputs/viz_resultados_estrategias.png" width="55%" />
+  <img src="outputs/viz_resultados_estrategias.png" width="80%" />
 </p>
 
 ### Importancia de Variables y Suministro de SHAP
 * **Feature Importance:** El modelo se apoya masivamente en variables puramente dinámicas: el monto total de transacciones (`Total_Trans_Amt`) y la desaceleración del conteo de transacciones entre trimestres (`Total_Ct_Chng_Q4_Q1`) dominan las decisiones de corte.
 
 <p align="center">
-  <img src="outputs/viz_feature_importance.png" width="45%" />
+  <img src="outputs/viz_feature_importance.png" width="75%" />
 </p>
 
 * **Interpretabilidad SHAP:** Valida la dirección del riesgo, demostrando de forma no lineal cómo una caída drástica en la cantidad de transacciones empuja exponencialmente la probabilidad del cliente hacia la zona de fuga.
 
 <p align="center">
-  <img src="outputs/viz_shap_summary.png" width="45%" />
+  <img src="outputs/viz_shap_summary.png" width="55%" />
 </p>
 
 ---
@@ -116,7 +116,7 @@ Para acercar el backend de Machine Learning a los tomadores de decisiones del ba
 > **[📊 Simulación Estratégica Interactiva (Streamlit App)](https://bank-churn-mlops-framework.streamlit.app/)**
 
 <p align="center">
-  <img src="outputs/viz_dashb_panel.png" width="75%" />
+  <img src="outputs/viz_dashb_panel.png" width="%" />
 </p>
 
 ### Características Clave del Simulador:
@@ -134,7 +134,7 @@ Para acercar el backend de Machine Learning a los tomadores de decisiones del ba
 * **Descarga del Entregable Comercial:** Al finalizar la inferencia, habilita la descarga directa de un archivo CSV operativo que reinyecta deterministamente el identificador `CLIENTNUM` al inicio de la tabla, listo para ser consumido por las plataformas de CRM o los canales tradicionales de marketing.
 
 <p align="center">
-  <img src="outputs/viz_dashb_bootstrap.png" width="75%" />
+  <img src="outputs/viz_dashb_bootstrap.png" width="100%" />
 </p>
 
 ## 🚀 7. Guía de Ejecución en Producción
