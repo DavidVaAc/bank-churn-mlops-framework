@@ -4,7 +4,7 @@ Este repositorio contiene un ecosistema de producción automatizado y modular pa
 
 A diferencia de los enfoques tradicionales que optimizan métricas puramente estadísticas (como F1-Score o Accuracy), este sistema implementa un **Motor de Decisiones Sensible al Costo (Cost-Sensitive Learning)** calibrado mediante optimización empírica en un conjunto de validación aislado, respaldado por un **Mapeo Canónico de Centroides** y validado financieramente a través de simulaciones estocásticas de **Monte Carlo (Bootstrap Dual)**.
 
-> **[📊 Simulación Estratégica Interactiva (Streamlit App)](https://www.loom.com/share/ejemplo-video-presentacion-ejecutiva)**
+> **[📊 Simulación Estratégica Interactiva (Streamlit App)](https://bank-churn-mlops-framework.streamlit.app/)**
 
 ## 🏗️ La Arquitectura de los 3 Pilares (Separación de Responsabilidades)
 
@@ -113,7 +113,7 @@ Los números demuestran un **empate estadístico** en el retorno financiero brut
 
 Para acercar el backend de Machine Learning a los tomadores de decisiones del banco, el archivo `app.py` despliega una aplicación web interactiva que sirve como la interfaz de usuario del modelo en producción.
 
-> **[📊 Simulación Estratégica Interactiva (Streamlit App)](https://www.loom.com/share/ejemplo-video-presentacion-ejecutiva)**
+> **[📊 Simulación Estratégica Interactiva (Streamlit App)](https://bank-churn-mlops-framework.streamlit.app/)**
 
 <p align="center">
   <img src="outputs/viz_dashb_panel.png" width="75%" />

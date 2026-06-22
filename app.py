@@ -168,7 +168,7 @@ def recalcular_umbrales_en_vivo(pipeline, dynamic_ue, save_rate=0.30):
 
 # --- PANTALLA PRINCIPAL ---
 st.title("🏦 Ecosistema de Inferencia y Simulación Financiera")
-st.markdown("Bienvenido al Portal Ejecutivo de Mitigación de Riesgos. Sube el lote de clientes mensuales para orquestar las campañas asimétricas.")
+st.markdown("Bienvenido al Portal Ejecutivo de Mitigación de Riesgos. Sube el lote de clientes para orquestar las campañas asimétricas.")
 
 # 1. Creamos dos columnas: una para el cargador de archivos y otra para el botón demo
 col_upload, col_demo = st.columns([3, 1])
