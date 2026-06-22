@@ -90,9 +90,9 @@ A continuación, se detalla el rendimiento del clasificador sobre cada segmento 
 
 #### 🔗 Reportes de Diagnóstico Interactivos (Plotly)
 Para explorar las métricas estadísticas estándar, puede visualizar los siguientes reportes HTML dinámicos:
-* [🔍 Curva ROC con mapeo de F1-Score](outputs/interactive_roc_curve.html)
-* [🔍 Curva Precision-Recall con mapeo de F1-Score](outputs/interactive_precision_recall.html)
-* [🔍 Comportamiento de Métricas ML (Precision, Recall, F1) vs. Umbral de Probabilidad](outputs/interactive_tuning_umbrales.html)
+* [🔍 Curva ROC con mapeo de F1-Score](https://DavidVaAc.github.io/bank-churn-mlops-framework/outputs/interactive_roc_curve.html)
+* [🔍 Curva Precision-Recall con mapeo de F1-Score](https://DavidVaAc.github.io/bank-churn-mlops-framework/outputs/interactive_precision_recall.html)
+* [🔍 Comportamiento de Métricas ML (Precision, Recall, F1) vs. Umbral de Probabilidad](https://DavidVaAc.github.io/bank-churn-mlops-framework/outputs/interactive_tuning_umbrales.html)
 
 ## 🎲 5. Gestión del Riesgo Estocástico: Bootstrap Monte Carlo
 
