@@ -109,11 +109,13 @@ class SistemaRetencionBancaria:
             X.loc[cond_alarma, 'Prediccion_Final'] = 1
             
             if cluster == 1:
-                X.loc[cond_alarma, 'Estrategia_Asignada'] = "ALERTA PREMIUM: Francotirador"
+                X.loc[cond_alarma, 'Estrategia_Asignada'] = "C1: ALERTA PREMIUM (Contacto Humano / Condonación)"
             elif cluster == 3:
-                X.loc[cond_alarma, 'Estrategia_Asignada'] = "CAMPAÑA MASIVA: Red de Arrastre"
-            else:
-                X.loc[cond_alarma, 'Estrategia_Asignada'] = "REACCIÓN BALANCEADA: Punto de Equilibrio"
+                X.loc[cond_alarma, 'Estrategia_Asignada'] = "C3: CAMPAÑA MASIVA (Email Automático / MSI)"
+            elif cluster == 0:
+                X.loc[cond_alarma, 'Estrategia_Asignada'] = "C0: ALIVIO FINANCIERO (Descuento de Tasa / Pagos Fijos)"
+            elif cluster == 2:
+                X.loc[cond_alarma, 'Estrategia_Asignada'] = "C2: DESPERTAR VIP (Bono de Cashback / Upgrade Tarjeta)"
                 
         # Columnas limpias que necesita el equipo de operaciones de marketing
         cols_entrega = ['Cluster_Cliente', 'Probabilidad_Churn', 'Prediccion_Final', 'Estrategia_Asignada']

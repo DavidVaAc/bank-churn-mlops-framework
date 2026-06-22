@@ -122,11 +122,13 @@ def generar_lista_estrategias(X_val, y_val, X_test, y_test, model, save_rate=0.3
         df_decisiones.loc[cond_alarma, 'Prediccion_Final'] = 1
         
         if cluster == 1:
-            df_decisiones.loc[cond_alarma, 'Estrategia_Asignada'] = "ALERTA PREMIUM: Francotirador (Contacto Humano / Condonación Anualidad)"
+            df_decisiones.loc[cond_alarma, 'Estrategia_Asignada'] = "ALERTA PREMIUM: Francotirador (Contacto Humano / Condonación)"
         elif cluster == 3:
-            df_decisiones.loc[cond_alarma, 'Estrategia_Asignada'] = "CAMPAÑA MASIVA: Red de Arrastre (Email Automático / Meses Sin Intereses)"
-        else:
-            df_decisiones.loc[cond_alarma, 'Estrategia_Asignada'] = "REACCIÓN BALANCEADA: Punto de Equilibrio (Descuento de Tasa / Cross-selling)"
+            df_decisiones.loc[cond_alarma, 'Estrategia_Asignada'] = "CAMPAÑA MASIVA: Red de Arrastre (Email Automático / MSI)"
+        elif cluster == 0:
+            df_decisiones.loc[cond_alarma, 'Estrategia_Asignada'] = "ALIVIO FINANCIERO: Reestructuración (Descuento de Tasa / Pagos Fijos)"
+        elif cluster == 2:
+            df_decisiones.loc[cond_alarma, 'Estrategia_Asignada'] = "DESPERTAR VIP: Re-engagement (Bono de Cashback / Upgrade Tarjeta)"
             
     print("\n=== DISTRIBUCIÓN DE ACCIONES COMERCIALES ASIGNADAS ===")
     resumen_acciones = df_decisiones['Estrategia_Asignada'].value_counts().reset_index()
@@ -169,9 +171,9 @@ def generar_lista_estrategias(X_val, y_val, X_test, y_test, model, save_rate=0.3
     # 2. Matrices por Segmento y Cálculo Financiero (Abajo)
     colores = ['Purples', 'Oranges', 'Greens', 'Reds']
     nombres_clusters = {
-        0: 'C0: Financiados (Equilibrio)',
-        1: 'C1: Súper Usr. (Francotirador)',
-        2: 'C2: VIP Pasivos (Equilibrio)',
+        0: 'C0: Financiados (Alivio)',
+        1: 'C1: Súper Usr. (Contacto Premium)',
+        2: 'C2: VIP Pasivos (Re-engagement)',
         3: 'C3: Alerta Roja (Red Arrastre)'
     }
     

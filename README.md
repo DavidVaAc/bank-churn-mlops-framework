@@ -129,7 +129,7 @@ Para acercar el backend de Machine Learning a los tomadores de decisiones del ba
 
 * **Panel de Control Financiero Lateral:** Sliders para modificar interactivamente la tasa de retención (Save Rate), los costos de alerta y el LTV de rescate por clúster. La app recalcula en vivo los umbrales óptimos, las pérdidas y el beneficio neto proyectado de la base cargada.
 
-* **Simulación Monte Carlo en Vivo (10,000 Escenarios):** Mediante operaciones vectorizadas con NumPy, la aplicación ejecuta al instante 10,000 remuestreos con reemplazo (Bootstrap) para estresar financieramente el portafolio ante los nuevos costos ingresados por el usuario. Si la columna `Churn_Real` está presente, se usará para calcular el beneficio neto real; de lo contrario, se simulará usando la probabilidad de fuga inferida por el modelo.
+* **Simulación Monte Carlo en Vivo (10,000 Escenarios):** Mediante operaciones vectorizadas con NumPy, la aplicación ejecuta al instante 10,000 remuestreos con reemplazo (Bootstrap) para estresar financieramente el portafolio ante los nuevos costos ingresados por el usuario. Si la columna `Attrition_Flag` está presente, se usará para calcular el beneficio neto real; de lo contrario, se simulará usando la probabilidad de fuga inferida por el modelo.
 
 * **Narrativa Visual en Espectro *Viridis*:** El histograma de riesgo se renderiza dinámicamente mediante bins precalculados en el backend, pintando un gradiente horizontal con la paleta *Viridis* (tonos oscuros para zonas de volatilidad a la izquierda; amarillos brillantes conforme la distribución de dinero se desplaza con seguridad hacia la derecha de la media).
 

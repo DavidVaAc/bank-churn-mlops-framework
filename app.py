@@ -295,7 +295,13 @@ if df_input is not None and pipeline is not None:
                     title='Asignación de Campañas de Mitigación',
                     color='Estrategia', color_continuous_scale='Viridis'
                 )
-                fig_bar.update_layout(plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color="white")
+                fig_bar.update_layout(
+                    plot_bgcolor='rgba(0,0,0,0)', 
+                    paper_bgcolor='rgba(0,0,0,0)', 
+                    font_color="white",
+                    showlegend=False
+                    )
+                
                 st.plotly_chart(fig_bar, width="stretch")
                 
             with g_col2:
