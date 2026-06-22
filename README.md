@@ -52,7 +52,7 @@ El Motor de Decisiones incorpora una **Tasa de Rescate Realista (`save_rate = 30
 
 ### Calibración de Umbrales sobre Validación
 
-El script ejecuta un barrido empírico de alta densidad (`np.linspace`) en el set de Validación para encontrar el umbral exacto que maximiza el beneficio neto por clúster, utilizando un anclaje analítico de *break-even* ($p^* = \frac{\text{Costo}}{\text{save\_rate} \times \text{LTV}}$) cuando el volumen de fuga en el segmento es muy pequeño para aportar evidencia estadística:
+El script ejecuta un barrido empírico de alta densidad (`np.linspace`) en el set de Validación para encontrar el umbral exacto que maximiza el beneficio neto por clúster, utilizando un anclaje analítico de *break-even* ( $p^* = \frac{\text{Costo}}{\text{Save Rate} \times \text{LTV}}$ ) cuando el volumen de fuga en el segmento es muy pequeño para aportar evidencia estadística:
 
 * **Umbrales Óptimos Calibrados:**
     - C0: `0.1250`
