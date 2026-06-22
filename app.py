@@ -68,6 +68,8 @@ with st.sidebar.expander("📖 Referencia de Clústeres (para fijar precios)", e
         "| **3** | Alerta Roja | Segmento restante |\n"
     )
 
+expander_umbrales = st.sidebar.expander("🔍 Umbrales Optimizados en Vivo", expanded=True)
+
 # Recuperar Unit Economics por defecto guardados en el objeto para inicializar los inputs
 if pipeline and hasattr(pipeline, 'unit_economics'):
     ue_saved = pipeline.unit_economics
@@ -220,7 +222,7 @@ if df_input is not None and pipeline is not None:
             
             # 3. Desplegamos un visor dinámico en el sidebar para transparencia ejecutiva
             st.sidebar.markdown("---")
-            with st.sidebar.expander("🔍 Umbrales Optimizados en Vivo", expanded=True):
+            with expander_umbrales:
                 # Usamos st.write (no st.sidebar.write) para que el contenido caiga DENTRO del expander
                 for cl, umb in umbrales_optimos_en_vivo.items():
                     st.write(f"Clúster {cl}: **{umb:.4f}**")
