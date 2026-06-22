@@ -1,0 +1,5 @@
+Cluster_Cliente,Credit_Limit,Total_Revolving_Bal,Avg_Open_To_Buy,Total_Trans_Amt,Total_Trans_Ct,Avg_Utilization_Ratio,Total_Amt_Chng_Q4_Q1,Total_Ct_Chng_Q4_Q1,Target_Churn,Cantidad_Clientes,Porcentaje_Total
+0,3918.0,1701.5,2216.5,3610.23,63.01,0.53,0.79,0.75,0.08,2657,43.73
+1,13865.23,1407.95,12457.28,13363.35,106.48,0.18,0.77,0.73,0.02,519,8.54
+2,26217.6,1212.75,25004.85,3650.96,59.7,0.05,0.78,0.73,0.16,851,14.01
+3,5999.99,396.8,5603.18,3298.99,58.12,0.07,0.72,0.65,0.3,2049,33.72
