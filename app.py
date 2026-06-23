@@ -391,9 +391,9 @@ if df_input is not None and pipeline is not None:
                 )
                 
                 fig_hist.add_vline(x=np.mean(roi_simulados), line_dash="dash", line_color="gold", 
-                                   annotation_text=f"Media: ${np.mean(roi_simulados):,.0f}", annotation_position="top right")
+                                   annotation_text=f"Media: ${np.mean(roi_simulados):,.0f}", annotation_position="top right",annotation_font_color="gray")
                 fig_hist.add_vline(x=np.percentile(roi_simulados, 2.5), line_dash="dot", line_color="red", 
-                                   annotation_text=f"P 2.5%: ${np.percentile(roi_simulados, 2.5):,.0f}", annotation_position="top left")
+                                   annotation_text=f"P 2.5%: ${np.percentile(roi_simulados, 2.5):,.0f}", annotation_position="top left",annotation_font_color="gray")
                 
                 fig_hist.update_layout(plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color="white", showlegend=False)
                 st.plotly_chart(fig_hist, width="stretch")
