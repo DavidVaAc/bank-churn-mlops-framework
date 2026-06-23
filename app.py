@@ -65,7 +65,7 @@ with st.sidebar.expander("📖 Referencia de Clústeres (para fijar precios)", e
         "| **0** | Financiados | Mayor `Avg_Utilization_Ratio` |\n"
         "| **1** | Súper Usuarios | Mayor `Total_Trans_Amt` |\n"
         "| **2** | VIP Pasivos | Mayor `Credit_Limit` |\n"
-        "| **3** | Alerta Roja | Segmento restante |\n"
+        "| **3** | Alerta Roja | Menor `Total_Revolving_Bal` |\n"
     )
 
 expander_umbrales = st.sidebar.expander("🔍 Umbrales Optimizados en Vivo", expanded=True)
